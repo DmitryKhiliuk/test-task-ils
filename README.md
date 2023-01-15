@@ -1,5 +1,14 @@
-# :maple_leaf: react-leaflet-osrm-example
+Требуется реализовать приложение по отображению заявок на перевозку на карте.
 
-[Demo](https://react-redux-saga-osrm-leaflet-example-evgenyantipin.vercel.app)
+Используя заданный набор заявок (таблица 1), реализовать экран, в котором слева будет таблица со списком заявок, а справа карта. При выборе в таблице строки с заявкой, выбранная строка должна подсветиться, а на карте отобразиться точки погрузки и разгрузки заявки в виде маркеров и полилиния трека движения между этими точками, полученная из сервиса построения треков по дорогам OSRM (или другой). При выборе заявки, на карте происходит масштабирование таким образом, чтобы весь маршрут попал в область видимости карты. Одновременно на карте может отображаться только один маршрут - выбранный.
 
-It is required to design a module for displaying requests for transportation. It is necessary to create an arbitrary set of applications and points of loading / unloading. Implement a screen form in which there will be a table with a list of applications on the left, and a map on the right. When you select a line with an order in the table, the selected line should be highlighted, and the map will display the loading and unloading points of the order in the form of markers and the polyline of the track between these points, obtained from an arbitrary service for building tracks on roads. Points of loading/unloading applications in the table must be editable (in the form of a select from the directory of points). The border between the table and the map must be changeable with the mouse (moves left and right). Table columns must have a minimum width, if there is not enough space to display the table, taking into account the minimum column width, the table must be able to scroll horizontally. To display the map, it is desirable to use the Leaflet package, for components - AntdDesign, for storing the state of components and data - Redux, for reacting to events - Saga. As the basis of the application, it is desirable to use React create app. Don't use classes, only functional components.
+Для отображения карты желательно использовать пакет Leaflet, для компонентов — AntdDesign, для хранения стейта компонентов и данных обязательно использовать Redux (redux-toolkit), для реакции на события — Saga. В качестве основы приложения желательно использовать React Create App. Использовать только функциональные компоненты. Применить разделение кода на функциональные слои: components, selectors, reducers, sagas, HTTP. Обязательно задействовать saga для получения трека по точкам, а также HTTP-сервис для обращения к API построения треков. CSS-стили допускается писать в  препроцессоре SASS/LESS.
+
+Решение требуется предоставить в виде исходного кода, готового для развертывания на веб-сервере (приложить файловый архив или ссылку на github, например). Приложение нужно писать чисто и аккуратно, используя известные паттерны, сразу с рефакторингом - код будет проверяться по аналогии с ревью в prod.
+
+Для получения polyline маршрута можно использовать API OSRM:
+
+http://project-osrm.org/docs/v5.5.1/api/?language=cURL#route-service
+
+
+
